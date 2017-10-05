@@ -1,5 +1,7 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<h1>Menu Tracker</h1>
+<p>Menu tracker helps you see what dishes are available today.</p>
+<ul>
+  {{#each foods as |food|}}
+    <li>Let's eat some {{food}}!</li>
+  {{/each}}
+</ul>
