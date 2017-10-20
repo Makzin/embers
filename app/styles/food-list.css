@@ -1,4 +1,26 @@
 
-li.not-available {
+.not-available {
 color: grey;
 }
+
+.not-available a {
+  color: grey;
+}
+
+.food-item {
+  border: 1px solid black;
+  border-radius: 5px;
+  max-width: 250px;
+  padding: 4px;
+  margin: 5px;
+}
+
+.food-item .title-bar {
+  font-size: 1.3em;
+}
+
+.food-item .description {
+  padding: 8px;
+  min-height: 70%;
+}
+

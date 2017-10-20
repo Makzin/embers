@@ -12,3 +12,29 @@
 .flex-item {
   padding: 10px;
 }
+
+.medium-text-area {
+  height: 50px;
+  width: 300px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.img-icon {
+  max-width: 64px;
+  max-height: 64px;
+  padding: 5px;
+}
+
+.pull-left {
+   float: left;
+}
+
+.email-status {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}

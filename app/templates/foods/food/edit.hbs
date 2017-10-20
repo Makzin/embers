@@ -1,0 +1,7 @@
+<p>Name: {{input value=model.name}}</p>
+<p>Description: {{textarea value=model.description class='medium-text-area'}}</p>
+<p>Image URL: {{input value=model.imageUrl}}</p>
+<img src={{model.imageUrl}} class='img-icon float-left'>
+<br>
+
+<button {{action 'save'}}>Save</button>

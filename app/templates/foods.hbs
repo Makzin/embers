@@ -5,23 +5,9 @@
     <p>Menu tracker helps you see what dishes are available today.</p>
     <p>{{menuLength}} foods total!</p>
     <p>{{availableItems.length}} foods available!</p>
-    <ul>
-      {{#each model as |food|}}
-      {{#if food.isAvailable}}
-        <li>
-        {{#link-to 'foods.food.eating' food.id}}{{food.name}}{{/link-to}}
-         <button{{action 'makeUnavailable' food}}>Make Unavailable</button>
-      </li>
-      {{else}}
-        <li class='not-available'><s>
-        {{food.name}}
-        <button{{action 'makeAvailable' food}}>Make Available</button>
-        <button{{action 'destroyItem' food}}>Delete Item</button>
-      </s></li>
-
-      {{/if}}
-      {{/each}}
-    </ul>
+    {{#each model as |food|}}
+      {{food-item food=food}}
+    {{/each}}
     <hr>
     {{input value=newItem}}
     <button {{action 'saveNewItem'}}>Save</button>
@@ -30,3 +16,5 @@
     {{outlet}}
   </div>
 </div>
+
+ {{email-status pageName='Foods'}}
