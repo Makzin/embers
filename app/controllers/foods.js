@@ -12,6 +12,10 @@ export default Ember.Controller.extend({
         name: this.get('newItem')
       }).save();
       Ember.set(this, 'newItem', '');
+    },
+    toggleAvailability(food) {
+      food.toggleProperty('isAvailable')
+      food.save();
     }
   }
 });

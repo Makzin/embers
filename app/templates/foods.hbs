@@ -1,20 +1,34 @@
 <div class='flex-container'>
-  <div class='flex-item'>
-    <h1>Menu Tracker</h1>
-    <p id='explanation'>Our restaurant is {{restaurant.name}}</p>
-    <p>Menu tracker helps you see what dishes are available today.</p>
-    <p>{{menuLength}} foods total!</p>
-    <p>{{availableItems.length}} foods available!</p>
-    {{#each model as |food|}}
-      {{food-item food=food}}
-    {{/each}}
-    <hr>
-    {{input value=newItem}}
-    <button {{action 'saveNewItem'}}>Save</button>
-  </div>
-  <div class='flex-item'>
-    {{outlet}}
-  </div>
+	<div class='flex-item'>
+		<h1>Menu Tracker</h1>
+		<p id='explanation'>Our restaurant is {{restaurant.name}}</p>
+		<p>Menu tracker helps you see what dishes are available today.</p>
+		<p>{{menuLength}} foods total!</p>
+		<p>{{availableItems.length}} foods available!</p>
+		{{#each model as |food|}}
+			{{#collapsible-component as |isOpen|}}
+				<div class='food-item {{if food.isAvailable '' 'not-available'}}'>
+  				<div {{action 'toggleOpen'}} class="title-bar">{{food.name}} <span class='pull-right'>{{if isOpen 'V' '>'}}</span></div>
+  			{{#if isOpen}}
+    			{{icon-image src=food.imageUrl left=true}}
+    			<div class='description'>{{food.description}}</div>
+    			{{#link-to 'foods.food' food.id}}
+      			<button>Show Page</button>
+    			{{/link-to}}
+      		<button{{action 'toggleAvailability' food}}>
+        		{{if food.isAvailable 'Make Unavailable' 'Make Available'}}
+     			</button>
+   			{{/if}}
+				</div>
+			{{/collapsible-component}}
+		{{/each}}
+		<hr>
+		{{input value=newItem}}
+		<button {{action 'saveNewItem'}}>Save</button>
+	</div>
+	<div class='flex-item'>
+		{{outlet}}
+	</div>
 </div>
 
  {{email-status pageName='Foods'}}

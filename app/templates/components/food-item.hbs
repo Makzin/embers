@@ -4,7 +4,9 @@
   {{#if isOpen}}
     {{icon-image src=food.imageUrl left=true}}
     <div class='description'>{{food.description}}</div>
-    {{#link-to 'foods.food' food.id}}<button>Show Page</button>{{/link-to}}
+    {{#link-to 'foods.food' food.id}}
+      <button>Show Page</button>
+    {{/link-to}}
       <button{{action 'toggleAvailability' food}}>
         {{if food.isAvailable 'Make Unavailable' 'Make Available'}}
      </button>
